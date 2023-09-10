@@ -192,6 +192,11 @@ type ProductInfo = {
 /**
  * @typedef
 */
+type GamePassProductInfo = Omit<ProductInfo, "ContentRatingTypeId" | "SaleAvailabilityLocations" | "SaleLocation" | "CollectibleItemId">;
+
+/**
+ * @typedef
+*/
 type BuyProductInfo = {
     ProductId: number;
     Creator: { Id: number };
@@ -962,6 +967,25 @@ type UniverseSettings = {
      optInRegions?: Array<Regions>;
 }
 
+/**
+ * @typedef
+ */
+ type GameRevenueData = {
+    Total: object;
+}
+
+/**
+ * @typedef
+ */
+type GameRevenueResponse = {
+    placeId: number;
+    dataType: number;
+    dataGranularity: number;
+    startTime: Date;
+    endTime: Date;
+    data: GameRevenueData;
+}
+
 /// Group
 
 /**
@@ -1068,7 +1092,7 @@ type Group = {
     name: string;
     description: string;
     owner: GroupUser;
-    shout: GroupShout;
+    shout?: GroupShout;
     memberCount: number;
     isBuildersClubOnly: boolean;
     publicEntryAllowed: boolean;

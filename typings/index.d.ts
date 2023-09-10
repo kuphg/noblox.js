@@ -215,6 +215,8 @@ declare module "noblox.js" {
         CollectibleItemId?: number;
     }
 
+    type GamePassProductInfo = Omit<ProductInfo, "ContentRatingTypeId" | "SaleAvailabilityLocations" | "SaleLocation" | "CollectibleItemId">;
+
     interface BuyProductInfo {
         ProductId: number;
         Creator: { Id: number };
@@ -808,7 +810,7 @@ declare module "noblox.js" {
         name: string;
         description: string;
         owner: GroupUser;
-        shout: GroupShout;
+        shout?: GroupShout;
         memberCount: number;
         isBuildersClubOnly: boolean;
         publicEntryAllowed: boolean;
@@ -1400,6 +1402,11 @@ declare module "noblox.js" {
     function deleteFromInventory(assetId: number, jar?: CookieJar): Promise<void>;
 
     /**
+     * ✅ Gets `info` of `gamepass` and caches according to settings.
+     */
+    function getGamePassProductInfo(gamepass: number): Promise<GamePassProductInfo>;
+
+    /**
      * ✅ Gets `info` of `asset` and caches according to settings.
      */
     function getProductInfo(asset: number): Promise<ProductInfo>;
@@ -1842,7 +1849,7 @@ declare module "noblox.js" {
     /**
      * 🔓 Returns information about the universe(s) in question, such as description, name etc; varies based on whether or not you're logged in.
      */
-    function getUniverseInfo(universeIds: number[] | number, jar?: CookieJar): Promise<UniverseInformation>;
+    function getUniverseInfo(universeIds: number[] | number, jar?: CookieJar): Promise<UniverseInformation[]>;
 
     /**
      * 🔐 Update a developer product.
