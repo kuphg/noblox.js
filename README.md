@@ -28,6 +28,7 @@
 
 ## About
 
+Forked to fix common errors that the library doesnt handle
 `noblox.js` is an open-source Roblox API wrapper written in JavaScript (with TypeScript compatibility) as a fork from sentanos's <a href="https://github.com/sentanos/roblox-js"> roblox-js module</a>.
 
 This NPM package enables operations froms the [Roblox website](https://www.roblox.com) to be executed via NodeJS; many individuals leverage `noblox.js` along side [Roblox's HTTPService](http://wiki.roblox.com/index.php?title=API:Class/HttpService) to create in-game scripts that interact with the website, i.e. promote users, shout events, and so on, or to create Discord utiltiies to manage their community.
